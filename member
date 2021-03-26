@@ -1,0 +1,27 @@
+import order as od
+
+class Member:
+
+    class_counter= 1
+
+    def __init__(self, balance=0, orders=0, amountToPay=0):
+        self.balance = balance
+        self.orders = []
+        self.amountToPay = amountToPay
+
+        self.id = Member.class_counter
+        Member.class_counter += 1
+        self.id = "mem"+ str(self.id)
+
+    def deposit(self, valueToAdd):
+        self.balance = (self.balance + valueToAdd) - self.amountToPay
+        return self.balance 
+
+    def addOrder(self, obj_order):
+        self.amountToPay = obj_order.quantity * obj_order.price
+        return self.orders.append(obj_order), self.amountToPay
+
+    def orderToAdd(self, prodcut, price, quantity):
+        self.added = od.Order(prodcut, price, quantity)
+        self.amountToPay += self.added.quantity * self.added.price
+        return self.orders.append(self.added), self.amountToPay
