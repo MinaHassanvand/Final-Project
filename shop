@@ -1,0 +1,27 @@
+import order as od 
+import member as mem
+
+class Shop: #container
+    
+    def __init__(self):
+        self.members = []
+        self.id = ""
+
+
+    def hasMember(self, obj_member):
+
+        if self.id in self.members:
+            return True
+        else:
+            return False
+        
+
+    def addMember(self, obj_member):
+        
+        return self.members.append(obj_member)
+
+
+    def checkOut(self, id):
+        obj_member = mem.Member()
+        obj_member.balance = obj_member.balance  - obj_member.amountToPay
+        return obj_member.balance
